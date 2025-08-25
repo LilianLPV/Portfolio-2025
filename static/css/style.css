@@ -1,0 +1,105 @@
+/* 🎨 Fonts & Reset */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* 🧭 Navigation */
+header {
+    background-color: #000;
+    padding: 15px 40px;
+    border-bottom: 2px solid #c00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.menu li a:hover,
+.menu li a.active {
+    color: #e50914;
+}
+
+/* 🥊 Section Palmarès */
+.palmares {
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.palmares h2 {
+    font-size: 3rem;
+    color: #e50914;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #bbb;
+    margin-bottom: 40px;
+}
+
+/* 🏆 Fight Cards */
+.fight-card {
+    background-color: #1a1a1a;
+    border: 2px solid #e50914;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fight-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.7);
+}
+
+.fight-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.vs {
+    color: #e50914;
+    font-weight: bold;
+}
+
+/* 📌 Footer */
+footer {
+    margin-top: 40px;
+    padding: 15px;
+    text-align: center;
+    background-color: #000;
+    color: #999;
+    font-size: 0.9rem;
+}
