@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <link rel="stylesheet" href="/static/accueil.css">
+    <link rel="stylesheet" href="/static/css/accueil.css">
     <title>Accueil</title>
 </head>
 <body>
+{{template "header" }}
+<div class="test">
     <h1>Bienvenue sur mon Portfolio</h1>
     <p>Ceci est une vitrine de mon travail et de mes projets.</p>
-
-<a href="/mon_palmares"><button>Mon palmarès</button></a>
-<a href="/techniques_de_combat"><button>Techniques de combat</button></a>
-<a href="/camp_d_entrainement"><button>Camp d'entraînement</button></a>
-<a href="/arbitres_et_supporters"><button>Arbitres & supporters</button></a>
-<a href="/provoque_moi_en_duel"><button>Provoque-moi en duel</button></a>
+    <p>Ceci est en cours de développement.</p>
+</div>
+{{template "footer"}}
+</body>
 {{end}}

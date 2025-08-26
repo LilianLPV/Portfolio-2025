@@ -53,3 +53,11 @@ func ProvoqueMoiEnDuelHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Erreur serveur", http.StatusInternalServerError)
 	}
 }
+
+func ProjetRedHandler(w http.ResponseWriter, r *http.Request) {
+	err := templates.Tpl.ExecuteTemplate(w, "projet_red", nil)
+	if err != nil {
+		log.Println("Erreur template projet_red:", err)
+		http.Error(w, "Erreur serveur", http.StatusInternalServerError)
+	}
+}
