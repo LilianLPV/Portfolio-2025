@@ -3,18 +3,26 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <link rel="stylesheet" href="/static/css/accueil.css">
-    <title>Accueil</title>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Lilian LE PIVER </title>
+    <link rel="stylesheet" href="/static/css/accueil.css"> </head>
 <body>
-{{template "header" }}
-<div class="test">
-    <h1>Bienvenue sur mon Portfolio</h1>
-    <p>Ceci est une vitrine de mon travail et de mes projets.</p>
-    <p>Ceci est en cours de développement.</p>
-</div>
-{{template "footer"}}
+
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#apropos">À Propos</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#experiences">Éxperiences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<script src="/static/js/home.js"></script>
 </body>
+</html>
 {{end}}
