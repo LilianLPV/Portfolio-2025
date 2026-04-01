@@ -1,17 +1,575 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #111;
-    font-family: Arial, sans-serif;
-    color: #ffffff;
+    background: #050505;
+    color: #f5f2ec;
+    font-family: 'Cormorant Garamond', serif;
 }
 
-.test {
-  margin: 20px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+body.modale-open {
+    overflow: hidden;
 }
+
+/* ── CANVAS ─────────────────────────── */
+canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── NAV ────────────────────────────── */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 1.5rem;
+    z-index: 100;
+}
+
+nav a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav a:hover { color: white; }
+nav a:hover::after { transform: scaleX(1); }
+
+/* ── SECTIONS (base commune) ─────────── */
+section {
+    position: relative;
+    z-index: 1;
+    padding: 12vh 8vw;
+}
+
+.section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+.section-titre {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 4rem;
+}
+
+.section-titre em { font-style: italic; }
+
+/* ── HERO ───────────────────────────── */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (min-width: 900px) {
+    #hero {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10vh 8vw;
+    }
+
+    .hero-left {
+        flex: 1;
+        max-width: 55%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .hero-bio {
+        max-width: 100%;
+    }
+
+    .hero-photo-wrap {
+        width: 40%;
+        justify-content: flex-end;
+    }
+
+    .hero-photo-cercle {
+        margin-left: auto;
+    }
+}
+
+.hero-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+.hero-nom {
+    font-size: clamp(3rem, 9vw, 8rem);
+    font-weight: 300;
+    line-height: 0.95;
+}
+
+.hero-nom em {
+    font-style: italic;
+    font-weight: 600;
+}
+
+.hero-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 2rem;
+}
+
+.hero-bio {
+    max-width: 460px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 1.5rem;
+    font-weight: 300;
+}
+
+.hero-photo-wrap {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.hero-photo-cercle {
+    position: relative;
+    width: clamp(200px, 22vw, 320px);
+    height: clamp(200px, 22vw, 320px);
+    border-radius: 50%;
+    overflow: hidden;
+    -webkit-mask-image: radial-gradient(circle, black 40%, transparent 78%);
+    mask-image: radial-gradient(circle, black 40%, transparent 78%);
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(20%) contrast(1.05);
+    display: block;
+}
+ 
+/* Overlay supplémentaire pour fondre encore plus les bords */
+.hero-photo-fondu {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 45%, #050505 75%);
+    pointer-events: none;
+}
+ 
+/* Placeholder visuel */
+.photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    color: rgba(255,255,255,0.2);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-align: center;
+    padding: 1rem;
+}
+.photo-placeholder svg { opacity: 0.25; }
+ 
+
+/* ── COMPÉTENCES ────────────────────── */
+#competences {
+    border-top: 1px solid #111;
+}
+
+.categorie {
+    margin-bottom: 3rem;
+}
+
+.categorie-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.categorie-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #1a1a1a;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skilltag {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid #222;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skilltag:hover {
+    border-color: white;
+    color: white;
+}
+
+/* ── PROJETS ────────────────────────── */
+#projets {
+    border-top: 1px solid #111;
+}
+
+.projets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #111;
+}
+
+.projet-card {
+    background: #050505;
+    padding: 2.5rem;
+    position: relative;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.projet-card:hover {
+    background: #0d0d0d;
+}
+
+.projet-num {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.2em;
+}
+
+.projet-nom {
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 0.4rem;
+}
+
+.projet-tech {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.1em;
+}
+
+.projet-arrow {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
+}
+
+.projet-card:hover .projet-arrow {
+    color: white;
+    transform: translate(3px, -3px);
+}
+
+/* ── MODALE ─────────────────────────── */
+.modale-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modale-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modale-contenu {
+    background: #0d0d0d;
+    border: 1px solid #222;
+    width: 90%;
+    max-width: 780px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 3rem;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modale-overlay.active .modale-contenu {
+    transform: translateY(0);
+}
+
+.modale-fermer {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+    font-family: 'Space Mono', monospace;
+}
+
+.modale-fermer:hover { color: white; }
+
+.modale-header {
+    margin-bottom: 2rem;
+}
+
+.modale-titre {
+    font-size: 2.5rem;
+    font-weight: 300;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 0.5rem;
+}
+
+.modale-tech {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.modale-screens {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.modale-screens img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border: 1px solid #222;
+    transition: border-color 0.3s;
+}
+
+.modale-screens img:hover { border-color: #555; }
+
+.screen-placeholder {
+    aspect-ratio: 16/9;
+    border: 1px dashed #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.1em;
+}
+
+.modale-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 2rem;
+    border-top: 1px solid #1a1a1a;
+    gap: 2rem;
+}
+
+.modale-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Cormorant Garamond', serif;
+    max-width: 480px;
+}
+
+.modale-github {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #444;
+    padding-bottom: 3px;
+    white-space: nowrap;
+    transition: border-color 0.3s;
+}
+
+.modale-github:hover { border-color: white; }
+
+/* ── EXPÉRIENCES ────────────────────── */
+#experiences {
+    border-top: 1px solid #111;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #1a1a1a;
+}
+
+.timeline-item {
+    padding-left: 2.5rem;
+    padding-bottom: 3.5rem;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #050505;
+    box-shadow: 0 0 0 3px #1a1a1a;
+}
+
+.timeline-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.6rem;
+}
+
+.timeline-titre {
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 0.3rem;
+}
+
+.timeline-lieu {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.1em;
+}
+
+/* ── CONTACT ────────────────────────── */
+#contact {
+    border-top: 1px solid #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-big {
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 0.95;
+    margin: 2rem 0 2.5rem;
+}
+
+.contact-email {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    padding-bottom: 4px;
+    transition: color 0.3s, border-color 0.3s;
+    margin-bottom: 2.5rem;
+    display: inline-block;
+}
+
+.contact-email:hover {
+    color: white;
+    border-color: white;
+}
+
+.contact-liens {
+    display: flex;
+    gap: 3rem;
+}
+
+.contact-lien {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-lien:hover { color: white; }

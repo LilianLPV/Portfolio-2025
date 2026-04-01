@@ -1,0 +1,199 @@
+{{define "portfolio"}}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Lilian LE PIVER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/accueil.css">
+</head>
+
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <nav>
+        <a href="#competences">Compétences</a>
+        <a href="#projets">Projets</a>
+        <a href="#formation">Formation</a>
+        <a href="#experiences">Expériences</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-left">
+            <p class="hero-label">Portfolio · 2026</p>
+            <h1 class="hero-nom">Lilian<br><em>LE PIVER</em></h1>
+            <p class="hero-sub">Étudiant en informatique · Aix Ynov Campus</p>
+            <p class="hero-bio">
+                En deuxième année de formation en Informatique à Ynov Campus,
+                je recherche une alternance pour septembre 2026.
+            </p>
+        </div>
+        <div class="hero-photo-wrap">
+            <div class="hero-photo-cercle">
+                <img src="/static/images/photo_lilian.jpg" class="hero-photo"/>
+                <div class="hero-photo-placeholder">
+                        <circle cx="24" cy="18" r="9" stroke="white" stroke-width="1.5"/>
+                        <path d="M6 42c0-9.941 8.059-18 18-18s18 8.059 18 18" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            
+                </div>
+                <div class="hero-photo-fondu"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences">
+        <p class="section-label">02 — Compétences</p>
+        <h2 class="section-titre">Compé<em>tences</em></h2>
+
+        <div class="categorie">
+            <p class="categorie-label">Front End</p>
+            <div class="skills-grid">
+                <div class="skilltag"><span class="nameskill">HTML5 / CSS3</span></div>
+                <div class="skilltag"><span class="nameskill">JavaScript</span></div>
+                <div class="skilltag"><span class="nameskill">TypeScript</span></div>
+                <div class="skilltag"><span class="nameskill">Angular</span></div>
+                <div class="skilltag"><span class="nameskill">Vue.js</span></div>
+            </div>
+        </div>
+
+        <div class="categorie">
+            <p class="categorie-label">Back End</p>
+            <div class="skills-grid">
+                <div class="skilltag"><span class="nameskill">Node.js / Express</span></div>
+                <div class="skilltag"><span class="nameskill">PHP</span></div>
+                <div class="skilltag"><span class="nameskill">Python</span></div>
+                <div class="skilltag"><span class="nameskill">Golang</span></div>
+            </div>
+        </div>
+
+        <div class="categorie">
+            <p class="categorie-label">Base de données</p>
+            <div class="skills-grid">
+                <div class="skilltag"><span class="nameskill">MySQL</span></div>
+                <div class="skilltag"><span class="nameskill">MariaDB</span></div>
+            </div>
+        </div>
+
+        <div class="categorie">
+            <p class="categorie-label">Outils</p>
+            <div class="skills-grid">
+                <div class="skilltag"><span class="nameskill">Git / GitHub</span></div>
+                <div class="skilltag"><span class="nameskill">VS Code / JetBrains</span></div>
+                <div class="skilltag"><span class="nameskill">Postman</span></div>
+                <div class="skilltag"><span class="nameskill">Figma</span></div>
+            </div>
+        </div>
+
+        <div class="categorie">
+            <p class="categorie-label">Soft Skills</p>
+            <div class="skills-grid">
+                <div class="skilltag"><span class="nameskill">Esprit d'équipe</span></div>
+                <div class="skilltag"><span class="nameskill">Force de proposition</span></div>
+                <div class="skilltag"><span class="nameskill">Écoute active</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets">
+        <p class="section-label">03 — Projets</p>
+        <h2 class="section-titre"><em>Projets</em></h2>
+        <div class="projets-grid">
+            <div class="projet-card" onclick="ouvrirModale('groupie')">
+                <span class="projet-num">01</span>
+                <h3 class="projet-nom">Groupie Trackers</h3>
+                <p class="projet-tech">Golang · JavaScript · HTML/CSS</p>
+                <span class="projet-arrow">↗</span>
+            </div>
+            <div class="projet-card" onclick="ouvrirModale('portfolio')">
+                <span class="projet-num">02</span>
+                <h3 class="projet-nom">Portfolio</h3>
+                <p class="projet-tech">Golang · HTML/CSS · JavaScript</p>
+                <span class="projet-arrow">↗</span>
+            </div>
+            <div class="projet-card" onclick="ouvrirModale('php')">
+                <span class="projet-num">03</span>
+                <h3 class="projet-nom">Projet PHP</h3>
+                <p class="projet-tech">PHP · CSS · JavaScript</p>
+                <span class="projet-arrow">↗</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="formation">
+        <p class="section-label">04 — Formation</p>
+        <h2 class="section-titre"><em>Formation</em></h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <p class="timeline-date">2024 — 2026</p>
+                <h3 class="timeline-titre">Bachelor Informatique</h3>
+                <p class="timeline-lieu">Ynov Campus · Aix-en-Provence</p>
+            </div>
+        </div>
+         <div class="timeline">
+            <div class="timeline-item">
+                <p class="timeline-date">2021 — 2023</p>
+                <h3 class="timeline-titre">BTS Gestion de la PME</h3>
+                <p class="timeline-lieu">Lycée EMILE ZOLA · Aix-en-Provence</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiences">
+        <p class="section-label">05 — Expériences</p>
+        <h2 class="section-titre"><em>Expé</em>riences</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <p class="timeline-date">Déc. 2023 — Juin 2025</p>
+                <h3 class="timeline-titre">Employé Polyvalent</h3>
+                <p class="timeline-lieu">Carrefour Market · Pertuis</p>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-date">Déc. 2022 — Fév. 2023</p>
+                <h3 class="timeline-titre">Stagiaire</h3>
+                <p class="timeline-lieu">Prop'Eco · Marseille</p>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-date">Mai 2022 — Juin 2022</p>
+                <h3 class="timeline-titre">Stagiaire</h3>
+                <p class="timeline-lieu">Acaupel · Salon-de-Provence</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <p class="section-label">05 — Contact</p>
+        <h2 class="contact-big">Travaillons<br><em>ensemble</em></h2>
+        <a href="mailto:lepiver.lilian@gmail.com" class="contact-email">lepiver.lilian@gmail.com</a>
+        <a href="/static/files/CV_Lilian_LE_PIVER.pdf" class="contact-email" download>Télécharger mon CV</a>
+        <div class="contact-liens">
+            <a href="https://github.com/LilianLPV" class="contact-lien">GitHub</a>
+            <a href="https://www.linkedin.com/in/lilian-le-piver/" class="contact-lien">LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- MODALE — directement dans body, en dehors de toute section -->
+    <div class="modale-overlay" id="modale" onclick="fermerModale()">
+        <div class="modale-contenu" onclick="event.stopPropagation()">
+            <button class="modale-fermer" onclick="fermerModale()">✕</button>
+            <div class="modale-header">
+                <h3 class="modale-titre" id="modale-titre"></h3>
+                <p class="modale-tech" id="modale-tech"></p>
+            </div>
+            <div class="modale-screens" id="modale-screens"></div>
+            <div class="modale-footer">
+                <p class="modale-desc" id="modale-desc"></p>
+                <a class="modale-github" id="modale-github" href="#" target="_blank">
+                    Voir sur GitHub ↗
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/etoiles.js"></script>
+</body>
+
+</html>
+{{end}}
