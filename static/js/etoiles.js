@@ -90,25 +90,28 @@ const projets = {
         tech:   'Golang · JavaScript · HTML/CSS · Figma · Postman',
         desc:   'Site web qui consomme une API pour afficher des informations sur des cartes pokémon.',
         github: 'https://github.com/LilianLPV/Groupie-Trackers',
-        screens: []
+        screens: ['/static/images/maquette-groupie.png', '/static/images/accueil-groupie.png', '/static/images/recherche-groupie.png']
     },
     portfolio: {
         titre:  'Portfolio',
         tech:   'Golang · HTML/CSS · JavaScript',
         desc:   'Portfolio personnel développé avec Go pour le backend et une animation canvas en JavaScript.',
         github: 'https://github.com/LilianLPV/Portfolio-2025',
-        screens: []
+        screens: ['/static/images/maquette-portfolio.png', '/static/images/accueil-portfolio.png']
     },
     php: {
         titre:  'Projet PHP',
         tech:   'PHP · CSS · JavaScript',
         desc:   'Site web développé en PHP avec une gestion dynamique du contenu.',
         github: 'https://github.com/LilianLPV/Projet-PHP-B2',
-        screens: []
+        screens: ['/static/images/maquette-php.png', '/static/images/accueil-php.png', '/static/images/affiche-film-php.png', '/static/images/information-film-php.png', '/static/images/reservation-siege-php.png']
     }
 };
 
 function ouvrirModale(id) {
+
+
+ 
     const projet  = projets[id];
     const modale  = document.getElementById('modale');
 
@@ -131,6 +134,7 @@ function ouvrirModale(id) {
 
     modale.classList.add('active');
     document.body.classList.add('modale-open');
+
 }
 
 function fermerModale() {
@@ -141,3 +145,4 @@ function fermerModale() {
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') fermerModale();
 });
+
