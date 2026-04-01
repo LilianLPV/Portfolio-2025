@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 body {
     background: #050505;
     color: #f5f2ec;
@@ -573,3 +574,12 @@ section {
 }
 
 .contact-lien:hover { color: white; }
+=======
+nav {
+    background-color: #b94c4c;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+>>>>>>> 711e8ff828967bd6e211c9f69f76610c48781804
